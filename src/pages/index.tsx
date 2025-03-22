@@ -1,10 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-import { createEvent } from "ics";
-
 import shape15 from "@/images/slider/shape15.svg";
 import cover from "@/images/cover.jpg";
 import invitationbg from "@/images/slider/invitation-bg2.jpg";
@@ -15,40 +11,12 @@ import corner4 from "@/images/slider/corner4.svg";
 import shape13 from "@/images/slider/shape13.svg";
 import shape14 from "@/images/slider/shape14.svg";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export default function Home() {
-  const [icsFile, setIcsFile] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<string>("");
 
   useEffect(() => {
-    const event: any = {
-      start: [2025, 4, 4, 18, 0],
-      duration: { hours: 1 },
-      title: "Engagement Ceremony of Vinothkanna and Banupriya",
-      description:
-        "Join us for the engagement ceremony of Vinothkanna and Banupriya.",
-      location:
-        "Arulmigu Vadakasi Amman Kovil, Kumanthapuram, Kadayanallur, Tamil Nadu 627751",
-      url: "https://vinocrazy.com/",
-      geo: { lat: 9.0833, lon: 77.3498 },
-      categories: ["Engagement", "Ceremony"],
-      status: "CONFIRMED",
-      busyStatus: "BUSY",
-      organizer: { name: "Family Members", email: "svkanna.g@gmail.com" },
-      attendees: [],
-    };
-
-    createEvent(event, (error, value) => {
-      if (error) {
-        console.log(error);
-        return;
-      }
-      const blob = new Blob([value], { type: "text/calendar" });
-      const url = URL.createObjectURL(blob);
-      setIcsFile(url);
-    });
-
     const countdown = () => {
       const eventDate = new Date(2025, 3, 4, 18, 0, 0); // April 4, 2025, 18:00:00
       const now = new Date();
@@ -74,22 +42,8 @@ export default function Home() {
   const handleAddToCalendar = () => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS) {
-      const icsContent = `BEGIN:VCALENDAR
-      VERSION:2.0
-      BEGIN:VEVENT
-      UID:uid1@example.com
-      DTSTAMP:20250322T000000Z
-      ORGANIZER;CN=Family Members:mailto:svkanna.g@gmail.com
-      DTSTART:20250404T180000Z
-      DTEND:20250404T190000Z
-      SUMMARY:Engagement Ceremony of Vinothkanna and Banupriya
-      DESCRIPTION:Join us for the engagement ceremony of Vinothkanna and Banupriya.
-      LOCATION:Arulmigu Vadakasi Amman Kovil, Kumanthapuram, Kadayanallur, Tamil Nadu 627751
-      END:VEVENT
-      END:VCALENDAR`;
-      const blob = new Blob([icsContent], { type: "text/calendar" });
-      const url = URL.createObjectURL(blob);
-      window.open(`webcal:${url}`, "_blank");
+     const inviteUrl = 'https://www.icloud.com/invites/018Q4ZRJ1OMcRCDXmwI_mAWdg'
+      window.open(inviteUrl, "_blank");
     } else {
       const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Engagement+Ceremony+of+Vinothkanna+and+Banupriya&dates=20250404T180000Z/20250404T190000Z&details=Join+us+for+the+engagement+ceremony+of+Vinothkanna+and+Banupriya.&location=Arulmigu+Vadakasi+Amman+Kovil,+Kumanthapuram,+Kadayanallur,+Tamil+Nadu+627751&sf=true&output=xml`;
       window.open(calendarUrl, "_blank");
