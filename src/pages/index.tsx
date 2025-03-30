@@ -11,14 +11,12 @@ import corner4 from "@/images/slider/corner4.svg";
 import shape13 from "@/images/slider/shape13.svg";
 import shape14 from "@/images/slider/shape14.svg";
 
-
-
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState<string>("");
 
   useEffect(() => {
     const countdown = () => {
-      const eventDate = new Date(2025, 3, 4, 18, 0, 0); // April 4, 2025, 18:00:00
+      const eventDate = new Date(2025, 3, 4, 17, 0, 0); // April 4, 2025, 17:00:00 (5:00 PM)
       const now = new Date();
       const difference = eventDate.getTime() - now.getTime();
 
@@ -42,10 +40,10 @@ export default function Home() {
   const handleAddToCalendar = () => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     if (isIOS) {
-     const inviteUrl = 'https://www.icloud.com/invites/018Q4ZRJ1OMcRCDXmwI_mAWdg'
+      const inviteUrl = 'https://www.icloud.com/invites/018Q4ZRJ1OMcRCDXmwI_mAWdg';
       window.open(inviteUrl, "_blank");
     } else {
-      const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Engagement+Ceremony+of+Vinothkanna+and+Banupriya&dates=20250404T180000Z/20250404T190000Z&details=Join+us+for+the+engagement+ceremony+of+Vinothkanna+and+Banupriya.&location=Arulmigu+Vadakasi+Amman+Kovil,+Kumanthapuram,+Kadayanallur,+Tamil+Nadu+627751&sf=true&output=xml`;
+      const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Engagement+Ceremony+of+Vinothkanna+and+Banupriya&dates=20250404T170000Z/20250404T180000Z&details=Join+us+for+the+engagement+ceremony+of+Vinothkanna+and+Banupriya.&location=Arulmigu+Vadakasi+Amman+Kovil,+Kumanthapuram,+Kadayanallur,+Tamil+Nadu+627751&sf=true&output=xml`;
       window.open(calendarUrl, "_blank");
     }
   };
@@ -60,7 +58,6 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" type="image/x-icon" />
-
 
         {/* Open Graph metadata */}
         <meta
@@ -112,7 +109,7 @@ export default function Home() {
                           <ul>
                             <li>
                               Friday, 04 Apr. 2025 <br />
-                              6:00 PM – 7:00 PM
+                              5:00 PM – 6:00 PM
                             </li>
                             <li>
                               <a
